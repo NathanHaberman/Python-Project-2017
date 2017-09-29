@@ -10,11 +10,12 @@ def index(request, page_num):
 
 
     # Getting thet start and end values for the query
-    start = (int(page_num) - 1) * 10
-    end = int(page_num) * 10
+    # start = (int(page_num) - 1) * 10
+    # end = int(page_num) * 10
 
     # Excluding the same gender as the person logged on and from start to end
-    possible_matches = Profile.objects.exclude(sex=logged_in_profile.sex)[start:end]
+    # possible_matches = Profile.objects.exclude(sex=logged_in_profile.sex)[start:end]
+    possible_matches = Profile.objects.exclude(sex=logged_in_profile.sex)
     
     matches = []
 
