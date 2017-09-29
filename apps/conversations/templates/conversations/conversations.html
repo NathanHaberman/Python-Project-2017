@@ -20,9 +20,13 @@
             </div>
         </div>
 
-        <div class="container">
+        <div class="container p-3">
+            <h1><u>Inbox</u></h1>
+            {% if not conversations %}
+                <h2>No Messages</h2>
+            {% endif %}
             {% for conversation in conversations %}
-                <div class="row">
+                <div class="row p-2">
                     <a href="/messages/{{conversation.conversation_id}}"><h4>{{conversation.user.username}}</h4></a>
                 </div>
             {% endfor %}
