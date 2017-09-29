@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <title>Profile Info</title>
+    </head>
+    <body>
+        <div class="row bg-primary p-3 justify-content-between">
+            <h2 class="text-primary ml-5 bg-white p-2 rounded">Match.com</h2>
+        </div>
+        <div class="container p-3">
+            <h2>Tell us about yourself</h2>
+            <form action="/users/profile/update/" method="POST">
+                {% csrf_token %}
+                <label for="desc">Description:</label><br>
+                <textarea name="desc" cols="30" rows="10" placeholder="Description about yourself"></textarea><br>
+
+
+                <label for="sex">Sex:</label><br>
+                <label><input type="radio" name="sex" value="Male">Male</label>
+                <label><input type="radio" name="sex" value="Female">Female</label><br>
+
+
+                <label for="age">Age:</label><br>
+                <input type="number" name="age"><br>
+
+
+                <label>Height:</label><br>
+                <select name="height_feet">
+                    <option value="2">2ft</option>
+                    <option value="3">3ft</option>
+                    <option value="4">4ft</option>
+                    <option value="5" selected>5ft</option>
+                    <option value="6">6ft</option>
+                    <option value="7">7ft</option>
+                    <option value="8">8ft</option>
+                </select>
+                <select name="height_inch">
+                    <option value="0">0in</option>
+                    <option value="1">1in</option>
+                    <option value="2">2in</option>
+                    <option value="3">3in</option>
+                    <option value="4">4in</option>
+                    <option value="5">5in</option>
+                    <option value="6">6in</option>
+                    <option value="7">7in</option>
+                    <option value="8">8in</option>
+                    <option value="9">9in</option>
+                    <option value="10">10in</option>
+                    <option value="11">11in</option>
+                </select><br>
+
+
+                <label for="body_type">Body Type:</label><br>
+                <select name="body_type">
+                    <option value="1">Slim</option>
+                    <option value="2">Average</option>
+                    <option value="3">Heavyset</option>
+                </select><br>
+
+
+                <label for="salary_range">Salary Range:</label><br>
+                <label><input type="radio" name="salary_range" value="1">Less than $25,000</label><br>
+                <label><input type="radio" name="salary_range" value="2">$25,000 - $40,000</label><br>
+                <label><input type="radio" name="salary_range" value="3">$40,000 - $60,000</label><br>
+                <label><input type="radio" name="salary_range" value="4">$60,000 - $80,000</label><br>
+                <label><input type="radio" name="salary_range" value="5">$80,000 - $100,000</label><br>
+                <label><input type="radio" name="salary_range" value="6">$100,000+</label><br>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </body>
+</html>

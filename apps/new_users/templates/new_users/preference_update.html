@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <title>Preferences</title>
+    </head>
+    <body>
+        <div class="row bg-primary p-3 justify-content-between">
+            <h2 class="text-primary ml-5 bg-white p-2 rounded">Match.com</h2>
+        </div>
+        <div class="container p-3">
+            <h2>Tell us what you are interested in!</h2>
+            <p>Select your deal breakers</p>
+            <form action="/users/preference/update/" method="POST">
+                {% csrf_token %}
+                <label for="age_min">Minimum Age:</label><br>
+                <input type="number" name="age_min"><br>
+                <label for="age_max">Maximum Age:</label><br>
+                <input type="number" name="age_max"><br>
+                <input type="checkbox" name="age_deal_breaker"> Deal Breaker<br><br>
+                
+                <label>Minimum Height:</label><br>
+                <select name="height_feet_min">
+                    <option value="2">2ft</option>
+                    <option value="3">3ft</option>
+                    <option value="4">4ft</option>
+                    <option value="5" selected>5ft</option>
+                    <option value="6">6ft</option>
+                    <option value="7">7ft</option>
+                    <option value="8">8ft</option>
+                </select>
+                <select name="height_inch_min">
+                    <option value="0">0in</option>
+                    <option value="1">1in</option>
+                    <option value="2">2in</option>
+                    <option value="3">3in</option>
+                    <option value="4">4in</option>
+                    <option value="5">5in</option>
+                    <option value="6">6in</option>
+                    <option value="7">7in</option>
+                    <option value="8">8in</option>
+                    <option value="9">9in</option>
+                    <option value="10">10in</option>
+                    <option value="11">11in</option>
+                </select><br>
+                <label>Maximum Height:</label><br>
+                <select name="height_feet_max">
+                    <option value="2">2ft</option>
+                    <option value="3">3ft</option>
+                    <option value="4">4ft</option>
+                    <option value="5" selected>5ft</option>
+                    <option value="6">6ft</option>
+                    <option value="7">7ft</option>
+                    <option value="8">8ft</option>
+                </select>
+                <select name="height_inch_max">
+                    <option value="0">0in</option>
+                    <option value="1">1in</option>
+                    <option value="2">2in</option>
+                    <option value="3">3in</option>
+                    <option value="4">4in</option>
+                    <option value="5">5in</option>
+                    <option value="6">6in</option>
+                    <option value="7">7in</option>
+                    <option value="8">8in</option>
+                    <option value="9">9in</option>
+                    <option value="10">10in</option>
+                    <option value="11">11in</option>
+                </select><br>
+                <input type="checkbox" name="height_deal_breaker"> Deal Breaker<br><br>
+                
+                
+                <label for="body_type">Body Type:</label><br>
+                <select name="body_type">
+                    <option value="1">Slim</option>
+                    <option value="2">Average</option>
+                    <option value="3">Heavyset</option>
+                </select><br>
+                <input type="checkbox" name="body_type_deal_breaker"> Deal Breaker<br><br>
+                
+                
+                <label for="salary_range">Salary Range:</label><br>
+                <label><input type="radio" name="salary_range" value="1">Less than $25,000</label><br>
+                <label><input type="radio" name="salary_range" value="2">$25,000 - $40,000</label><br>
+                <label><input type="radio" name="salary_range" value="3">$40,000 - $60,000</label><br>
+                <label><input type="radio" name="salary_range" value="4">$60,000 - $80,000</label><br>
+                <label><input type="radio" name="salary_range" value="5">$80,000 - $100,000</label><br>
+                <label><input type="radio" name="salary_range" value="6">$100,000+</label><br>
+                <input type="checkbox" name="salary_deal_breaker"> Deal Breaker<br><br>
+
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </body>
+</html>
