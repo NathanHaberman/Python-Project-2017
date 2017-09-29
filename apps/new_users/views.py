@@ -38,7 +38,8 @@ def register(request):
             Preference.objects.create(user=user)
 
 
-
+            # So we know that it is the first time they are setting up their account
+            request.session['register'] = True
 
             # Set Home Page
             return redirect('/users/profile/')
@@ -138,8 +139,11 @@ def profile_update(request):
 
         user.save()
 
-    return redirect('/users/preference/')
+        for key in request.session.keys():
+            if key == 'register':
+                return redirect('/users/preference/')
 
+    return redirect('/users/' + str(request.session['logged_in_user']) + '/')
 
 # Render a page to update user preferences
 def preference(request):
@@ -168,4 +172,8 @@ def preference_update(request):
 
         user.save()
 
+    for key in request.session.keys():
+        if key == 'register':
+            del request.session[key]
+            
     return redirect('/users/' + str(request.session['logged_in_user']) + '/')
