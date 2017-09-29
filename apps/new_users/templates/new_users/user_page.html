@@ -30,8 +30,10 @@
             Body Type: {{profile_body_type}}<br>
             Salary range: {{profile_salary_range}}<br>
 
-            <a href="/users/profile/">Updated Profile</a> | 
-            <a href="/users/preference/">Updated Preference</a>
+            {% if user.id == request.session.logged_in_user %}
+                <a href="/users/profile/">Updated Profile</a> | 
+                <a href="/users/preference/">Updated Preference</a>
+            {% endif %}
         </div>
     </body>
 </html>
