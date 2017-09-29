@@ -5,7 +5,6 @@ from models import User, Profile, Preference
 import bcrypt
 
 
-# Create your views here.
 def index(request):
     return render(request, 'new_users/index.html')
 
